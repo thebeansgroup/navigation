@@ -1,10 +1,14 @@
 require "navigation/version"
 require 'navigation/railtie'
 require 'navigation/configuration'
-require 'navigation/item_collection'
+require 'navigation/base_collection'
+require 'navigation/item_group_collection'
+require 'navigation/item_group'
 require 'navigation/item'
+require 'navigation/options'
 require 'navigation/helpers'
 require 'navigation/context'
+require 'navigation/decorators/navigation_decorator'
 
 module Navigation
 

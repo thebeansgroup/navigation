@@ -38,7 +38,7 @@ module Navigation
     end
 
     def config_file
-      File.join(Rails.root, 'config', 'navigation.rb')
+      File.join(Rails.root, 'config', 'global_navigation.rb')
     end
   end
 end

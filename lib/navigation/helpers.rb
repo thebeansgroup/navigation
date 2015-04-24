@@ -10,8 +10,7 @@ module Navigation
     end
 
     def navigation_data(options = {})
-      config = Navigation::Helpers.load_config options, self
-      Navigation::Decorators::NavigationDecorator.new config
+      Navigation::Helpers.load_config options, self
     end
   end
 end

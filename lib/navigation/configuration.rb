@@ -23,7 +23,6 @@ module Navigation
     end
 
     def item(key, name, url, options = {})
-      binding.pry
       add_item key, Navigation::Item.new(key, name, url, options)
     end
 

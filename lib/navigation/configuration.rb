@@ -7,14 +7,14 @@ module Navigation
     attr_reader :item_groups, :items, :options
 
     def initialize
-      @options = Options.new
-      @items = ItemGroupCollection.new
-      @item_groups = ItemGroupCollection.new
+      @options = Navigation::Options.new
+      @items = Navigation::ItemGroupCollection.new
+      @item_groups = Navigation::ItemGroupCollection.new
     end
 
     # Starts processing the configuration
     def self.setup(&block)
-      block.call Configuration.instance
+      block.call Navigation::Configuration.instance
     end
 
     def self.eval_config(context)
@@ -23,7 +23,8 @@ module Navigation
     end
 
     def item(key, name, url, options = {})
-      add_item key, Item.new(key, name, url, options)
+      binding.pry
+      add_item key, Navigation::Item.new(key, name, url, options)
     end
 
     def option(key, value = nil, &block)
@@ -32,7 +33,7 @@ module Navigation
     end
 
     def item_group(key, &block)
-      add_item_group key, block.call(ItemGroup.new)
+      add_item_group key, block.call(Navigation::ItemGroup.new)
     end
 
     protected

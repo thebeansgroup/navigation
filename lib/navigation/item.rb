@@ -7,10 +7,10 @@ module Navigation
       self.key  = key
       self.name = name
       self.url  = url
-      self.active = set_active
+      self.active = is_active?
     end
 
-    def set_active
+    def is_active?
       current_path_proc = Proc.new do
         request.path
       end

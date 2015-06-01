@@ -7,9 +7,10 @@ module Navigation
       self.key  = key
       self.name = name
       self.url  = url
+      self.active = set_active
     end
 
-    def active
+    def set_active
       current_path_proc = Proc.new do
         request.path
       end
@@ -20,6 +21,6 @@ module Navigation
 
     protected
 
-    attr_writer :key, :name, :url, :options
+    attr_writer :key, :name, :url, :options, :active
   end
 end

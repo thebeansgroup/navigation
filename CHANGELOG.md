@@ -1,4 +1,4 @@
-## Next
+## 0.6.0
 - Adding primitive context support
 
 ## 0.5.0

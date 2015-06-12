@@ -1,4 +1,5 @@
 ## Next
+- Adding primitive context support
 
 ## 0.5.0
 - Adding active state to items

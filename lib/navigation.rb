@@ -15,7 +15,7 @@ module Navigation
   mattr_accessor :config, :root, :environment, :context
 
   # Cache for loaded config files
-  self.config = nil
+  self.config = {}
 
   class << self
     # Sets the root path and current environment as specified. Also sets the
@@ -25,20 +25,24 @@ module Navigation
       self.environment = environment
     end
 
+    def config_for_context(context)
+      self.config[context]
+    end
+
     def init_context_from(includer)
       self.context = Navigation::Context.new includer
     end
 
-    def load_config(navigation_context = :global)
-      self.config ||= read_config
+    def load_config(context = :global)
+      self.config[context] ||= read_config(context)
     end
 
-    def read_config
-      File.read config_file
+    def read_config(context)
+      File.read config_file(context)
     end
 
-    def config_file
-      File.join(Rails.root, 'config', 'global_navigation.rb')
+    def config_file(context)
+      File.join(Rails.root, 'config', "#{context}_navigation.rb")
     end
   end
 end

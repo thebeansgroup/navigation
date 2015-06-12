@@ -18,7 +18,7 @@ module Navigation
     end
 
     def self.eval_config(context)
-      config = Navigation.config
+      config = Navigation.config_for_context(context)
       Navigation.context.for_eval.instance_eval config
     end
 

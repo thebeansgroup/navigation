@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    navigation (0.6.0)
+    navigation (0.6.1)
       active_model_serializers (~> 0.8)
       draper (~> 2.0)
 

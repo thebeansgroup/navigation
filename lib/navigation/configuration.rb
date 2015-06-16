@@ -2,7 +2,6 @@ require 'singleton'
 
 module Navigation
   class Configuration
-    include Singleton
 
     attr_reader :item_groups, :items, :options
 
@@ -14,7 +13,9 @@ module Navigation
 
     # Starts processing the configuration
     def self.setup(&block)
-      block.call Navigation::Configuration.instance
+      config = self.new
+      block.call config
+      config
     end
 
     def self.eval_config(context)

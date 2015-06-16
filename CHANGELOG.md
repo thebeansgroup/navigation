@@ -1,4 +1,5 @@
 ## Next
+- Fixing context problems where contexts overridden
 
 ## 0.6.0
 - Adding primitive context support

@@ -12,7 +12,6 @@ module Navigation
       Navigation.init_context_from includer
       Navigation.load_config context
       Navigation::Configuration.eval_config context
-      Navigation::Configuration.instance
     end
   end
 end

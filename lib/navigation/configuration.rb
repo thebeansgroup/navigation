@@ -2,7 +2,6 @@ require 'singleton'
 
 module Navigation
   class Configuration
-
     attr_reader :item_groups, :items, :options
 
     def initialize
@@ -13,7 +12,7 @@ module Navigation
 
     # Starts processing the configuration
     def self.setup(&block)
-      config = self.new
+      config = new
       block.call config
       config
     end

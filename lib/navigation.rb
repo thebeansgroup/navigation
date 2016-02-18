@@ -1,4 +1,4 @@
-require "navigation/version"
+require 'navigation/version'
 require 'navigation/railtie'
 require 'navigation/configuration'
 require 'navigation/base_collection'
@@ -11,7 +11,6 @@ require 'navigation/context'
 require 'navigation/decorators/navigation_decorator'
 
 module Navigation
-
   mattr_accessor :config, :root, :environment, :context
 
   # Cache for loaded config files
@@ -26,19 +25,19 @@ module Navigation
     end
 
     def config_for_context(context)
-      self.config[context]
+      config[context]
     end
 
     def init_context_from(includer)
-      self.context = Navigation::Context.new includer
+      self.context = Navigation::Context.new(includer)
     end
 
     def load_config(context = :global)
-      self.config[context] ||= read_config(context)
+      config[context] ||= read_config(context)
     end
 
     def read_config(context)
-      File.read config_file(context)
+      File.read(config_file(context))
     end
 
     def config_file(context)

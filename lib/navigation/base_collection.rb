@@ -1,17 +1,16 @@
 module Navigation
   class BaseCollection < Hash
-
     def []=(key, val)
-      define_item_group_getter key
-      super key, val
+      define_item_group_getter(key)
+      super(key, val)
     end
 
     protected
 
     def define_item_group_getter(key)
-      return if self.metaclass.instance_methods.include? key
-      self.metaclass.send :define_method, key do
-        self.fetch key
+      return if metaclass.instance_methods.include?(key)
+      metaclass.send :define_method, key do
+        fetch(key)
       end
     end
 

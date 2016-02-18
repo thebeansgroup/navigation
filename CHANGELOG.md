@@ -1,4 +1,5 @@
 ## Next
+- Rubocop was here
 
 ## 0.6.1
 - Fixing context problems where contexts overridden

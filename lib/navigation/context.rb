@@ -18,10 +18,10 @@ module Navigation
     end
 
     def template_from(_controller)
-      if self.controller.respond_to?(:view_context)
-        self.controller.view_context
+      if controller.respond_to?(:view_context)
+        controller.view_context
       else
-        self.controller.instance_variable_get(:template)
+        controller.instance_variable_get(:template)
       end
     end
 

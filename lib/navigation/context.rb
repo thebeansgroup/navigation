@@ -3,9 +3,9 @@ module Navigation
     attr_reader :controller, :template, :request
 
     def initialize(context)
-      self.controller = extract_controller_from context
-      self.template = template_from self.controller
-      self.request = self.template.try(:request)
+      self.controller = extract_controller_from(context)
+      self.template = template_from(controller)
+      self.request = template.try(:request)
     end
 
     # Extracts a controller from the context.
@@ -17,18 +17,18 @@ module Navigation
       end
     end
 
-    def template_from(controller)
-      if self.controller.respond_to?(:view_context)
-        self.controller.view_context
+    def template_from(_controller)
+      if controller.respond_to?(:view_context)
+        controller.view_context
       else
-        self.controller.instance_variable_get(:self.template)
+        controller.instance_variable_get(:template)
       end
     end
 
     def for_eval
-      self.template   ||
-      self.controller ||
-      fail('no context set for evaluating the config file')
+      template ||
+        controller ||
+        fail('no context set for evaluating the config file')
     end
 
     private

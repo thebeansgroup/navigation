@@ -7,16 +7,15 @@ module Navigation
       self.key  = key
       self.name = name
       self.url  = url
-      self.active = is_active?
+      self.active = active?
     end
 
-    def is_active?
-      current_path_proc = Proc.new do
-        request.path
-      end
-      current_path = Navigation.context.for_eval.instance_eval &current_path_proc
+    def active?
+      current_path_proc = proc { request.path }
+      current_path = Navigation.context.for_eval.instance_eval(
+        &current_path_proc)
 
-      current_path == self.url
+      current_path == url
     end
 
     protected

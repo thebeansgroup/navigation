@@ -1,7 +1,8 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
   Exclude:
-    - "vendor/**/*"
-    - "db/schema.rb"
+    - 'bin/**/*'
   UseCache: false
 Style/CollectionMethods:
   Description: Preferred collection methods.
